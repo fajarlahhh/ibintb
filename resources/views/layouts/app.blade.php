@@ -138,7 +138,7 @@
 
   <footer class="bg-dark">
     <div class="container pb-13 pb-md-15">
-      <div class="text-inverse py-md-6 mx-md-5 mt-n15 mt-lg-0">
+      <div class="text-inverse py-md-18 mx-md-5 mt-n15 mt-lg-0">
         <div class="row gy-6 gy-lg-0">
           <div class="col-md-4 col-lg-3">
             <div class="widget">
@@ -202,6 +202,7 @@
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
+  @livewireScripts
   <script src="../assets/js/plugins.js"></script>
   <script src="../assets/js/theme.js"></script>
 </body>

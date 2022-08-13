@@ -14,10 +14,17 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', \App\Http\Livewire\Home::class);
+Route::group(['prefix' => 'kegiatan', 'as' => 'kegiatan.'], function () {
+  Route::get('/', \App\Http\Livewire\Kegiatan\Index::class);
+  Route::get('/{key}', \App\Http\Livewire\Kegiatan\Detail::class);
+});
 Route::group(['prefix' => 'profil', 'as' => 'profil.'], function () {
   Route::get('/visimisi', \App\Http\Livewire\Profil\Visimisi::class);
   Route::get('/sejarah', \App\Http\Livewire\Profil\Sejarah::class);
   Route::get('/atribut', \App\Http\Livewire\Profil\Atribut::class);
+  Route::get('/sambutan', \App\Http\Livewire\Profil\Sambutan::class);
+  Route::get('/pengurus', \App\Http\Livewire\Profil\Pengurus::class);
+  Route::get('/keanggotaan', \App\Http\Livewire\Profil\Keanggotaan::class);
 });
 Route::group(['prefix' => 'bidan', 'as' => 'bidan.'], function () {
   Route::get('/definisi', \App\Http\Livewire\Bidan\Definisi::class);
