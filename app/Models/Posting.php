@@ -14,4 +14,9 @@ class Posting extends Model
   {
     return $this->hasMany(Hit::class);
   }
+
+  public function kategori()
+  {
+    return $this->belongsTo(Kategori::class);
+  }
 }

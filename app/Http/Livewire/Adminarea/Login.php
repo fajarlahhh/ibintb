@@ -18,6 +18,7 @@ class Login extends Component
     session()->flash('danger', 'Login gagal. UID atau Kata Sandi salah');
     return redirect()->back()->withInput();
   }
+
   public function render()
   {
     return view('livewire.adminarea.login')

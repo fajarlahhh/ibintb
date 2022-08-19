@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Kegiatan;
+namespace App\Http\Livewire\Berita;
 
 use App\Models\Hit;
 use App\Models\Kategori;
@@ -15,7 +15,7 @@ class Detail extends Component
   public function mount($key)
   {
     $this->key = $key;
-    $this->data = Posting::where('jenis', 'kegiatan')->withCount('hit')->where('id', $this->key)->firstOrFail();
+    $this->data = Posting::where('jenis', 'berita')->withCount('hit')->where('id', $this->key)->firstOrFail();
     Hit::insert([
       'posting_id' => $this->data->id,
       'created_at' => now(),
@@ -25,9 +25,9 @@ class Detail extends Component
 
   public function render()
   {
-    return view('livewire.kegiatan.detail', [
-      'terpopuler' => Posting::where('jenis', 'kegiatan')->withCount('hit')->orderBy('hit_count', 'desc')->take(5)->get(),
-      'dataKategori' => Kategori::where('jenis', 'kegiatan')->withCount('posting')->whereHas('posting', fn($q) => $q->where('jenis', 'kegiatan'))->orderBy('posting_count', 'desc')->get(),
+    return view('livewire.berita.detail', [
+      'terpopuler' => Posting::where('jenis', 'berita')->withCount('hit')->orderBy('hit_count', 'desc')->take(5)->get(),
+      'dataKategori' => Kategori::where('jenis', 'berita')->withCount('posting')->whereHas('posting', fn($q) => $q->where('jenis', 'berita'))->orderBy('posting_count', 'desc')->get(),
       'dataArsip' => Posting::select(DB::raw('left(created_at,7) as tanggal'))->groupBy(DB::raw('left(created_at,7)'))->orderBy('tanggal', 'asc')->get(),
     ])
       ->extends('layouts.app');
