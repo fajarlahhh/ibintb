@@ -6,12 +6,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Ganti Password</h1>
+            <h1 class="m-0">Berita</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Ganti Password</li>
+              <li class="breadcrumb-item">Berita</li>
+              <li class="breadcrumb-item active">{{ $key ? 'Edit' : 'Tambah' }}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -46,7 +47,9 @@
                   </div>
                 @endif
                 @if ($data)
-                  <img src="{{ asset($data->file) }}" alt="">
+                  <div class="w-100 overflow-auto">
+                    <img src="{{ asset($data->file) }}" alt="">
+                  </div>
                 @endif
               </div>
               <div class="form-group">
@@ -68,6 +71,7 @@
                 </select>
               </div>
               <input type="submit" value="Simpan" class="btn btn-success m-r-3" />
+              <a href="{{ $back }}" class="btn btn-danger">Batal</a>
             </form>
           </div>
         </div>

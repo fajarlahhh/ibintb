@@ -40,7 +40,8 @@
                 <tr>
                   <th style="width: 10px">#</th>
                   <th>Judul</th>
-                  <th>Tanggal</th>
+                  <th>Kategori</th>
+                  <th>Tanggal Posting</th>
                   <th class="width-10"></th>
                 </tr>
               </thead>
@@ -49,6 +50,7 @@
                   <tr>
                     <td>{{ $i + 1 }}</td>
                     <td>{{ $row->judul }}</td>
+                    <td>{{ $row->kategori->nama }}</td>
                     <td>{{ $row->created_at }}</td>
                     <td class="text-right">
                       <div class="btn-group btn-group-sm" role="group">

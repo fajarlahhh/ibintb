@@ -28,6 +28,10 @@
   @livewireStyles
 </head>
 
+@php
+$currentUrl = '/' . Request::path();
+@endphp
+
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
 
@@ -51,7 +55,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
+      <a href="/" class="brand-link">
         <img src="/assets/img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
         <span class="brand-text font-weight-light">Dashboard IBI NTB</span>
@@ -64,7 +68,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
             data-accordion="false">
             <li class="nav-item">
-              <a href="/admin-area" class="nav-link">
+              <a href="/admin-area" class="nav-link @if (strpos($currentUrl, '/admin-area') === 0 && strlen($currentUrl) == strlen('/admin-area')) active @endif">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -72,7 +76,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin-area/berita" class="nav-link">
+              <a href="/admin-area/berita" class="nav-link @if (strpos($currentUrl, '/admin-area/berita') === 0) active @endif">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>
                   Berita
@@ -80,7 +84,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin-area/kegiatan" class="nav-link">
+              <a href="/admin-area/kegiatan" class="nav-link @if (strpos($currentUrl, '/admin-area/kegiatan') === 0) active @endif">
                 <i class="nav-icon fa fa-rss"></i>
                 <p>
                   Kegiatan
@@ -88,15 +92,15 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin-area/datapengumuman" class="nav-link">
+              <a href="/admin-area/pengumuman" class="nav-link @if (strpos($currentUrl, '/admin-area/pengumuman') === 0) active @endif">
                 <i class="nav-icon fa fa-bell"></i>
                 <p>
-                  Data Pengumuman
+                  Pengumuman
                 </p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+            <li class="nav-item @if (strpos($currentUrl, '/admin-area/profil') === 0) menu-open @endif">
+              <a href="#" class="nav-link @if (strpos($currentUrl, '/admin-area/profil') === 0) active @endif">
                 <i class="nav-icon fas fa-address-card"></i>
                 <p>
                   Profil
@@ -105,75 +109,52 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/admin-area/sambutanketua" class="nav-link">
+                  <a href="/admin-area/profil/sambutanketua"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/sambutanketua') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Sambutan Ketua</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin-area/pengurus" class="nav-link">
+                  <a href="/admin-area/profil/pengurus"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/pengurus') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Pengurus</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin-area/sejarahsingkat" class="nav-link">
+                  <a href="/admin-area/profil/sejarahsingkat"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/sejarahsingkat') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Sejarah Singkat</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin-area/visimisi" class="nav-link">
+                  <a href="/admin-area/profil/visimisi"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/visimisi') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Visi Misi</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin-area/atributibi" class="nav-link">
+                  <a href="/admin-area/profil/atributibi"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/atributibi') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Atribut IBI</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin-area/keanggotaan" class="nav-link">
+                  <a href="/admin-area/profil/keanggotaan"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/keanggotaan') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Keanggotaan</p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-user-nurse"></i>
-                <p>
-                  Bidan
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/admin-area/definisi" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Definisi</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/admin-area/filosofi" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Filosofi</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="/admin-area/pendidikan" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Pendidikan</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
             <li class="nav-header">SESSION</li>
             <li class="nav-item">
-              <a href="/admin-area/gantipassword" class="nav-link">
+              <a href="/admin-area/gantipassword" class="nav-link @if (strpos($currentUrl, '/admin-area/gantipassword') === 0) active @endif">
                 <i class="nav-icon fas fa-key"></i>
                 <p>
                   Ganti Password
@@ -181,7 +162,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="/admin-area/logout" class="nav-link">
+              <a href="/admin-area/logout" class="nav-link @if (strpos($currentUrl, '/admin-area/logout') === 0) active @endif">
                 <i class="nav-icon fa fa-sign-out-alt"></i>
                 <p>
                   Logout

@@ -10,7 +10,7 @@ class Sambutan extends Component
   public function render()
   {
     return view('livewire.profil.sambutan', [
-      'data' => Profil::where('jenis', 'sambutan')->firstOrFail(),
+      'data' => Profil::where('jenis', 'sambutanketua')->firstOrFail(),
     ])
       ->extends('layouts.app');
   }

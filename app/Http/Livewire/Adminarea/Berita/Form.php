@@ -57,8 +57,8 @@ class Form extends Component
       $this->data->file = str_replace('public/', '', $file);
     }
     $this->data->save();
-    redirect()->to($this->back);
     session()->flash('success', 'Data saved successfully');
+    redirect()->to($this->back);
   }
 
   public function mount()

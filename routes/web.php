@@ -30,11 +30,6 @@ Route::group(['prefix' => 'profil', 'as' => 'profil.'], function () {
   Route::get('/pengurus', \App\Http\Livewire\Profil\Pengurus::class);
   Route::get('/keanggotaan', \App\Http\Livewire\Profil\Keanggotaan::class);
 });
-Route::group(['prefix' => 'bidan', 'as' => 'bidan.'], function () {
-  Route::get('/definisi', \App\Http\Livewire\Bidan\Definisi::class);
-  Route::get('/filosofi', \App\Http\Livewire\Bidan\Filosofi::class);
-  Route::get('/pendidikan', \App\Http\Livewire\Bidan\Pendidikan::class);
-});
 Route::get('/kontak', \App\Http\Livewire\Kontak::class);
 
 Route::get('/login', \App\Http\Livewire\Adminarea\Login::class)->name('login');
@@ -42,19 +37,17 @@ Route::get('/login', \App\Http\Livewire\Adminarea\Login::class)->name('login');
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin-area'], function () {
   Route::get('/logout', \App\Http\Livewire\Adminarea\Logout::class)->name('logout');
   Route::group(['prefix' => '/profil'], function () {
-    Route::get('/', \App\Http\Livewire\Adminarea\Profil\Index::class);
-    Route::get('/tambah', \App\Http\Livewire\Adminarea\Profil\Form::class);
-    Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Profil\Form::class);
+    Route::get('/sambutanketua', \App\Http\Livewire\Adminarea\Profil\Sambutanketua::class);
+    Route::get('/pengurus', \App\Http\Livewire\Adminarea\Profil\Pengurus::class);
+    Route::get('/sejarahsingkat', \App\Http\Livewire\Adminarea\Profil\Sejarahsingkat::class);
+    Route::get('/visimisi', \App\Http\Livewire\Adminarea\Profil\Visimisi::class);
+    Route::get('/atributibi', \App\Http\Livewire\Adminarea\Profil\Atributibi::class);
+    Route::get('/keanggotaan', \App\Http\Livewire\Adminarea\Profil\Keanggotaan::class);
   });
   Route::group(['prefix' => '/berita'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Berita\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Adminarea\Berita\Form::class);
     Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Berita\Form::class);
-  });
-  Route::group(['prefix' => '/profil'], function () {
-    Route::get('/', \App\Http\Livewire\Adminarea\Profil\Index::class);
-    Route::get('/tambah', \App\Http\Livewire\Adminarea\Profil\Form::class);
-    Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Profil\Form::class);
   });
   Route::group(['prefix' => '/kegiatan'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Kegiatan\Index::class);

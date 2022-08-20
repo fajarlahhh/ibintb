@@ -49,14 +49,6 @@
                     <li class="nav-item"><a class="dropdown-item" href="/profil/keanggotaan">Keanggotaan</a></li>
                   </ul>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Bidan</a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="dropdown-item" href="/bidan/definisi">Definisi</a></li>
-                    <li class="nav-item"><a class="dropdown-item" href="/bidan/filosofi">Filosofi</a></li>
-                    <li class="nav-item"><a class="dropdown-item" href="/bidan/pendidikan">Pendidikan</a></li>
-                  </ul>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link " href="/kegiatan">Kegiatan</a>
                 </li>
