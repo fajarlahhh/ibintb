@@ -41,32 +41,31 @@ Route::get('/login', \App\Http\Livewire\Adminarea\Login::class)->name('login');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin-area'], function () {
   Route::get('/logout', \App\Http\Livewire\Adminarea\Logout::class)->name('logout');
-  Route::prefix('/profil', function () {
+  Route::group(['prefix' => '/profil'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Profil\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Adminarea\Profil\Form::class);
     Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Profil\Form::class);
   });
-  Route::prefix('/berita', function () {
+  Route::group(['prefix' => '/berita'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Berita\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Adminarea\Berita\Form::class);
     Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Berita\Form::class);
   });
-  Route::prefix('/profil', function () {
+  Route::group(['prefix' => '/profil'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Profil\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Adminarea\Profil\Form::class);
     Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Profil\Form::class);
   });
-  Route::prefix('/kegiatan', function () {
+  Route::group(['prefix' => '/kegiatan'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Kegiatan\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Adminarea\Kegiatan\Form::class);
     Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Kegiatan\Form::class);
   });
-  Route::prefix('/pengumuman', function () {
+  Route::group(['prefix' => '/pengumuman'], function () {
     Route::get('/', \App\Http\Livewire\Adminarea\Pengumuman\Index::class);
     Route::get('/tambah', \App\Http\Livewire\Adminarea\Pengumuman\Form::class);
     Route::get('/edit/{key}', \App\Http\Livewire\Adminarea\Pengumuman\Form::class);
   });
-  Route::get('/kontak', \App\Http\Livewire\Adminarea\Kontak::class);
   Route::get('/gantipassword', \App\Http\Livewire\Adminarea\Gantipassword::class);
   Route::get('/', \App\Http\Livewire\Adminarea\Index::class);
 });
