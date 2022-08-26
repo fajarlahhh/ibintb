@@ -103,7 +103,7 @@
             <h4 class="widget-title text-white mb-3">Lokasi & Kontak</h4>
             <address class="pe-xl-15 pe-xxl-17">Jl. Kesra Raya No.82, Tj. Karang Permai, Kec. Sekarbela, Kota
               Mataram, NTB</address>
-            <a href="mailto:ibintb@gmail.com">ibintb@gmail.com</a><br /> 085847720198
+            <a href="mailto:ibintb@gmail.com">ibintb@gmail.com</a><br /> 081999923568
           </div>
         </div>
         <!-- /column -->

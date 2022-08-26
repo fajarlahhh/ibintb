@@ -15,6 +15,7 @@ class Login extends Component
       Auth::logoutOtherDevices($this->kataSandi, 'kata_sandi');
       return redirect('/admin-area');
     }
+
     session()->flash('danger', 'Login gagal. UID atau Kata Sandi salah');
     return redirect()->back()->withInput();
   }
