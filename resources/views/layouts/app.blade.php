@@ -50,10 +50,13 @@
                   </ul>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link " href="/berita">Berita</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link " href="/kegiatan">Kegiatan</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="/berita">Berita</a>
+                  <a class="nav-link text-red" href="/pengumuman">Pengumuman</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="/kontak">Kontak Kami</a>

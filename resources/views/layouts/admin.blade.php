@@ -84,6 +84,32 @@ $currentUrl = '/' . Request::path();
               </a>
             </li>
             <li class="nav-item">
+              <a href="/admin-area/carousel" class="nav-link @if (strpos($currentUrl, '/admin-area/carousel') === 0) active @endif">
+                <i class="nav-icon fas fa-images"></i>
+                <p>
+                  Carousel
+                </p>
+              </a>
+            </li>
+            <li class="nav-item @if (strpos($currentUrl, '/admin-area/datamaster') === 0) menu-open @endif">
+              <a href="#" class="nav-link @if (strpos($currentUrl, '/admin-area/datamaster') === 0) active @endif">
+                <i class="nav-icon fas fa-database"></i>
+                <p>
+                  Data Master
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/admin-area/datamaster/kategori"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/datamaster/kategori') === 0) active @endif">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kategori</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
               <a href="/admin-area/kegiatan" class="nav-link @if (strpos($currentUrl, '/admin-area/kegiatan') === 0) active @endif">
                 <i class="nav-icon fa fa-rss"></i>
                 <p>

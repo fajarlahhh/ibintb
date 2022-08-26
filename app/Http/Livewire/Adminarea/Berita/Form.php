@@ -54,7 +54,7 @@ class Form extends Component
     $this->data->kategori_id = $this->kategori;
     $this->data->jenis = 'berita';
     if ($file) {
-      $this->data->file = str_replace('public/', '', $file);
+      $this->data->gambar = str_replace('public/', '', $file);
     }
     $this->data->save();
     session()->flash('success', 'Data saved successfully');
@@ -64,7 +64,7 @@ class Form extends Component
   public function mount()
   {
     $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/berita/' . strtolower(str_replace(' ', '', $this->jenis)) : url()->previous();
-    $this->dataKategori = Kategori::all();
+    $this->dataKategori = Kategori::where('jenis', 'berita')->get();
     if ($this->key) {
       $this->data = Posting::findOrFail($this->key);
       $this->judul = $this->data->judul;

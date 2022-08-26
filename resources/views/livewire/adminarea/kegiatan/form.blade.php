@@ -43,12 +43,12 @@
                 <br>
                 @if ($file)
                   <div class="w-100 overflow-auto">
-                    <img src="{{ $file->temporaryUrl() }}" alt="">
+                    <img src="/{{ $file->temporaryUrl() }}" alt="">
                   </div>
                 @endif
                 @if ($data)
                   <div class="w-100 overflow-auto">
-                    <img src="{{ asset($data->file) }}" alt="">
+                    <img src="{{ asset($data->gambar) }}" alt="">
                   </div>
                 @endif
               </div>

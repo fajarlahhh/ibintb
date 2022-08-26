@@ -25,7 +25,7 @@ class Index extends Component
 
   public function restore()
   {
-    Posting::withTrashed()->findOrFail($this->key)->restore();
+    Posting::findOrFail($this->key)->restore();
     $this->key = null;
     $this->resetPage();
     session()->flash('success', 'Data restored successfully');
@@ -42,7 +42,7 @@ class Index extends Component
   public function hapusPermanen()
   {
     $data = Posting::findOrFail($this->key);
-    File::delete(public_path('storage/' . $data->file));
+    File::delete(public_path('storage/' . $data->gambar));
     $data->forceDelete();
     $this->key = null;
     $this->resetPage();

@@ -1,32 +1,38 @@
 <section class="br-fix overflow-hidden">
-  <div class="wrapper image-wrapper bg-cover bg-image bg-overlay bg-overlay-500"
-    data-image-src="./assets/img/photos/bg26.jpg">
-    <div class="container pt-18 pt-lg-21 pb-17 pb-lg-19 text-center">
-      <div class="row">
-        <div class="col-md-9 col-lg-8 col-xl-7 col-xxl-6 mx-auto" data-cues="zoomIn" data-group="page-title"
-          data-interval="-200" data-delay="500">
-          <h2 class="h1 text-uppercase ls-xl text-white mb-5">IKATAN BIDAN INDONESIA</h2>
-          <h3 class="display-1 fs-25 text-white mb-7">Pengurus Daerah Nusa Tenggara Barat</h3>
-        </div>
-        <!-- /column -->
+  <div class="swiper-container dots-over" data-margin="5" data-dots="true" data-nav="true" data-autoheight="true">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        @foreach (\App\Models\Carousel::all() as $key => $row)
+          <div class="swiper-slide bg-overlay bg-overlay-400 " style="height:700px">
+            <img src="{{ asset($row->gambar) }}" alt="" />
+            <div class="caption-wrapper p-12">
+              <div
+                class="caption bg-white rounded px-4 py-3 mt-auto animate__animated animate__slideInDown animate__delay-1s">
+                <h5 class="mb-0">{{ $row->keterangan }}</h5>
+              </div>
+              <!--/.caption -->
+            </div>
+            <!--/.caption-wrapper -->
+          </div>
+        @endforeach
       </div>
-      <!-- /.row -->
+      <!--/.swiper-wrapper -->
     </div>
-    <!-- /.container -->
-    <div class="overflow-hidden">
-      <div class="divider text-white mx-n2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60">
-          <path fill="currentColor" d="M0,0V60H1440V0A5771,5771,0,0,1,0,0Z" />
-        </svg>
-      </div>
-    </div>
-    <!-- /.overflow-hidden -->
+    <!-- /.swiper -->
   </div>
-  <!-- /.wrapper -->
+  <!-- /.swiper-container -->
 </section>
 
 <section class="wrapper bg-light">
-  <div class="container py-14 py-md-16">
+  <div class="container pb-16 pt-3">
+    <div class="row text-center ">
+      <div class="col-md-10 col-lg-9 col-xxl-8 mx-auto">
+        <h2 class="fs-20 text-uppercase text-muted mb-3">Menjadikan organisasi profesi yang handal dalam Mewujudkan
+          bidan profesional berstandar global</h2>
+      </div>
+      <hr>
+      <!-- /column -->
+    </div>
     <div class="row gy-6">
       <div class="col-md-6 col-lg-4">
         <div class="widget">
@@ -35,7 +41,7 @@
             @if ($key == 0)
               <article>
                 <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img
-                      src="{{ $row->gambar }}" alt="" /></a>
+                      src="{{ asset($row->gambar) }}" style="height: 250px !important" alt="" /></a>
                   <figcaption>
                     <h5 class="from-top mb-0">Read More</h5>
                   </figcaption>
@@ -66,7 +72,7 @@
             @else
               <ul class="image-list">
                 <li>
-                  <figure class="rounded"><a href="/berita/{{ $row->getKey() }}"><img src="{{ $row->gambar }}"
+                  <figure class="rounded"><a href="/berita/{{ $row->getKey() }}"><img src="{{ asset($row->gambar) }}"
                         alt="" /></a></figure>
                   <div class="post-content">
                     <h6 class="mb-0"> <a class="link-dark"
@@ -92,7 +98,7 @@
             @if ($key == 0)
               <article>
                 <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img
-                      src="{{ $row->gambar }}" alt="" /></a>
+                      src="{{ asset($row->gambar) }}" style="height: 250px !important" alt="" /></a>
                   <figcaption>
                     <h5 class="from-top mb-0">Read More</h5>
                   </figcaption>
@@ -123,8 +129,8 @@
             @else
               <ul class="image-list">
                 <li>
-                  <figure class="rounded"><a href="/kegiatan/{{ $row->getKey() }}"><img src="{{ $row->gambar }}"
-                        alt="" /></a></figure>
+                  <figure class="rounded"><a href="/kegiatan/{{ $row->getKey() }}"><img
+                        src="{{ asset($row->gambar) }}" alt="" /></a></figure>
                   <div class="post-content">
                     <h6 class="mb-0"> <a class="link-dark"
                         href="/kegiatan/{{ $row->getKey() }}">{!! \Illuminate\Support\Str::words($row->judul, 3, '....') !!}</a> </h6>
@@ -149,16 +155,16 @@
             @if ($key == 0)
               <article>
                 <figure class="overlay overlay-1 hover-scale rounded mb-5"><a href="#"> <img
-                      src="{{ $row->gambar }}" alt="" /></a>
+                      src="{{ asset($row->gambar) }}" style="height: 250px !important" alt="" /></a>
                   <figcaption>
                     <h5 class="from-top mb-0">Read More</h5>
                   </figcaption>
                 </figure>
                 <div class="post-header">
-                  <div class="post-category text-line">
-                    <a href="#" class="hover" rel="category">{{ $row->kategori->nama }}</a>
-                  </div>
                   <!-- /.post-category -->
+                  <div class="post-category text-line">
+                    <a href="#" class="hover" rel="category">Pengumuman</a>
+                  </div>
                   <h2 class="post-title h3 mt-1 mb-3"><a class="link-dark"
                       href="/pengumuman/{{ $row->getKey() }}">{{ \Illuminate\Support\Str::words($row->judul, 3, '....') }}</a>
                   </h2>
@@ -180,8 +186,8 @@
             @else
               <ul class="image-list">
                 <li>
-                  <figure class="rounded"><a href="/pengumuman/{{ $row->getKey() }}"><img src="{{ $row->gambar }}"
-                        alt="" /></a></figure>
+                  <figure class="rounded"><a href="/pengumuman/{{ $row->getKey() }}"><img
+                        src="{{ asset($row->gambar) }}" alt="" /></a></figure>
                   <div class="post-content">
                     <h6 class="mb-0"> <a class="link-dark"
                         href="/pengumuman/{{ $row->getKey() }}">{!! \Illuminate\Support\Str::words($row->judul, 3, '....') !!}</a> </h6>

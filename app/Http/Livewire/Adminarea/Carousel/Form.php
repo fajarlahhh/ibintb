@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Adminarea\Pengumuman;
+namespace App\Http\Livewire\Adminarea\Carousel;
 
-use App\Models\Kategori;
-use App\Models\Posting;
+use App\Models\Carousel;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -12,28 +11,17 @@ use Livewire\WithFileUploads;
 class Form extends Component
 {
   use WithFileUploads;
-  public $key, $data, $back, $judul, $isi, $file;
-
-  protected $listeners = [
-    'set:setisi' => 'setIsi',
-  ];
-
-  public function setIsi($isi)
-  {
-    $this->isi = $isi;
-  }
+  public $key, $data, $back, $keterangan, $file;
 
   public function submit()
   {
     if ($this->key) {
       $this->validate([
-        'judul' => 'required',
-        'isi' => 'required',
+        'keterangan' => 'required',
       ]);
     } else {
       $this->validate([
-        'judul' => 'required',
-        'isi' => 'required',
+        'keterangan' => 'required',
         'file' => 'required',
       ]);
     }
@@ -47,9 +35,7 @@ class Form extends Component
       $file = $this->file->store('public/file');
     }
 
-    $this->data->judul = $this->judul;
-    $this->data->isi = $this->isi;
-    $this->data->jenis = 'pengumuman';
+    $this->data->keterangan = $this->keterangan;
     if ($file) {
       $this->data->gambar = str_replace('public/', '', $file);
     }
@@ -60,20 +46,18 @@ class Form extends Component
 
   public function mount()
   {
-    $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/pengumuman/' . strtolower(str_replace(' ', '', $this->jenis)) : url()->previous();
-    $this->dataKategori = Kategori::all();
+    $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/carousel/' . strtolower(str_replace(' ', '', $this->jenis)) : url()->previous();
     if ($this->key) {
-      $this->data = Posting::findOrFail($this->key);
-      $this->judul = $this->data->judul;
-      $this->isi = $this->data->isi;
+      $this->data = Carousel::findOrFail($this->key);
+      $this->keterangan = $this->data->keterangan;
     } else {
-      $this->data = new Posting();
+      $this->data = new Carousel();
     }
   }
   public function render()
   {
     $this->emit("reinitialize");
-    return view('livewire.adminarea.pengumuman.form')
+    return view('livewire.adminarea.carousel.form')
       ->extends('layouts.admin');
   }
 }

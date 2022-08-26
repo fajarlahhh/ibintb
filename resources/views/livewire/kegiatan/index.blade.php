@@ -20,7 +20,7 @@
               <article class="post">
                 <div class="card">
                   <figure class="card-img-top overlay overlay-1 hover-scale"><a
-                      href="/kegiatan/{{ $row->getKey() }}"><img src="{{ $row->gambar }}" alt="" /></a>
+                      href="/kegiatan/{{ $row->getKey() }}"><img src="{{ asset($row->gambar) }}" alt="" /></a>
                     <figcaption>
                       <h5 class="from-top mb-0">Selengkapnya</h5>
                     </figcaption>
@@ -28,7 +28,7 @@
                   <div class="card-body">
                     <div class="post-header">
                       <div class="post-category text-line">
-                        <a href="#" class="hover" rel="category">{{ $row->kategori }}</a>
+                        <a href="#" class="hover" rel="category">{{ $row->kategori->nama }}</a>
                       </div>
                       <!-- /.post-category -->
                       <h2 class="post-title mt-1 mb-0"><a class="link-dark"
@@ -68,7 +68,7 @@
             <ul class="image-list">
               @foreach ($terpopuler as $key => $row)
                 <li>
-                  <figure class="rounded"><a href="/kegiatan/{{ $row->getKey() }}"><img src="{{ $row->gambar }}"
+                  <figure class="rounded"><a href="/kegiatan/{{ $row->getKey() }}"><img src="{{ asset($row->gambar) }}"
                         alt="" /></a></figure>
                   <div class="post-content">
                     <h6 class="mb-0"> <a class="link-dark"

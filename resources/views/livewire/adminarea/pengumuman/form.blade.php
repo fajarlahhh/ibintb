@@ -43,12 +43,12 @@
                 <br>
                 @if ($file)
                   <div class="w-100 overflow-auto">
-                    <img src="{{ $file->temporaryUrl() }}" alt="">
+                    <img src="/{{ $file->temporaryUrl() }}" alt="">
                   </div>
                 @endif
                 @if ($data)
                   <div class="w-100 overflow-auto">
-                    <img src="{{ asset($data->file) }}" alt="">
+                    <img src="{{ asset($data->gambar) }}" alt="">
                   </div>
                 @endif
               </div>
@@ -60,15 +60,6 @@
                 @error('isi')
                   <span class="text-danger">{{ $message }}</span>
                 @enderror
-              </div>
-              <div class="form-group">
-                <label>Kategori</label>
-                <select class="form-control" wire:model.defer="kategori">
-                  <option selected hidden>-- Pilih Kategori --</option>
-                  @foreach ($dataKategori as $row)
-                    <option value="{{ $row->getKey() }}">{{ $row->nama }}</option>
-                  @endforeach
-                </select>
               </div>
               <input type="submit" value="Simpan" class="btn btn-success m-r-3" />
               <a href="{{ $back }}" class="btn btn-danger">Batal</a>

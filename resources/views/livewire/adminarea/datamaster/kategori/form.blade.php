@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Berita</h1>
+            <h1 class="m-0">Pengumuman</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item">Berita</li>
+              <li class="breadcrumb-item">Pengumuman</li>
               <li class="breadcrumb-item active">{{ $key ? 'Edit' : 'Tambah' }}</li>
             </ol>
           </div><!-- /.col -->
@@ -27,47 +27,18 @@
           <div class="card-body">
             <form wire:submit.prevent="submit">
               <div class="form-group">
-                <label>Judul</label>
-                <input type="text" class="form-control" wire:model.defer="judul">
-                @error('judul')
-                  <span class="text-danger">{{ $message }}</span>
-                @enderror
-              </div>
-              <div class="alert alert-info">
-                <label>Gambar</label>
-                <input class="form-control-file" type="file" wire:model="file" accept="image/jpeg,image/png"
-                  autocomplete="off" />
-                @error('file')
-                  <span class="text-danger">{{ $message }}</span>
-                @enderror
-                <br>
-                @if ($file)
-                  <div class="w-100 overflow-auto">
-                    <img src="/{{ $file->temporaryUrl() }}" alt="">
-                  </div>
-                @endif
-                @if ($data)
-                  <div class="w-100 overflow-auto">
-                    <img src="{{ asset($data->gambar) }}" alt="">
-                  </div>
-                @endif
-              </div>
-              <div class="form-group">
-                <label>Isi</label>
-                <div wire:ignore>
-                  <textarea id="summernote">{{ $isi }}</textarea>
-                </div>
-                @error('isi')
+                <label>Nama</label>
+                <input type="text" class="form-control" wire:model.defer="nama">
+                @error('nama')
                   <span class="text-danger">{{ $message }}</span>
                 @enderror
               </div>
               <div class="form-group">
-                <label>Kategori</label>
-                <select class="form-control" wire:model.defer="kategori">
-                  <option selected hidden>-- Pilih Kategori --</option>
-                  @foreach ($dataKategori as $row)
-                    <option value="{{ $row->getKey() }}">{{ $row->nama }}</option>
-                  @endforeach
+                <label>Jenis</label>
+                <select class="form-control" wire:model.defer="jenis">
+                  <option selected hidden>-- Pilih Jenis --</option>
+                  <option value="berita">Berita</option>
+                  <option value="kegiatan">Kegiatan</option>
                 </select>
               </div>
               <input type="submit" value="Simpan" class="btn btn-success m-r-3" />
