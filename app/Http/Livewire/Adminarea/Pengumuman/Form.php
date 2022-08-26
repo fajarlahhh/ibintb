@@ -60,7 +60,7 @@ class Form extends Component
 
   public function mount()
   {
-    $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/pengumuman/' . strtolower(str_replace(' ', '', $this->jenis)) : url()->previous();
+    $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/admin-area/pengumuman/' : url()->previous();
     $this->dataKategori = Kategori::all();
     if ($this->key) {
       $this->data = Posting::findOrFail($this->key);

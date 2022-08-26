@@ -27,7 +27,7 @@ class Form extends Component
 
   public function mount()
   {
-    $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/datamaster/kategori/' : url()->previous();
+    $this->back = Str::contains(url()->previous(), ['tambah', 'edit']) ? '/admin-area/datamaster/kategori/' : url()->previous();
     if ($this->key) {
       $this->data = Kategori::findOrFail($this->key);
       $this->nama = $this->data->nama;
