@@ -54,7 +54,7 @@ class Form extends Component
     $this->data->kategori_id = $this->kategori;
     $this->data->jenis = 'kegiatan';
     if ($file) {
-      $this->data->gambar = str_replace('public/', '', $file);
+      $this->data->gambar = str_replace('public/', 'storage/', $file);
     }
     $this->data->save();
     session()->flash('success', 'Data saved successfully');
