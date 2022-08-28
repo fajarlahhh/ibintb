@@ -36,7 +36,7 @@
                     </div>
                     <!-- /.post-header -->
                     <div class="post-content">
-                      {!! \Illuminate\Support\Str::words($row->isi, 50, '....') !!}
+                      @php echo \Illuminate\Support\Str::words($row->isi, 50, '....') @endphp
                     </div>
                     <!-- /.post-content -->
                   </div>
@@ -71,8 +71,8 @@
                   <figure class="rounded"><a href="/kegiatan/{{ $row->getKey() }}"><img src="{{ asset($row->gambar) }}"
                         alt="" /></a></figure>
                   <div class="post-content">
-                    <h6 class="mb-0"> <a class="link-dark"
-                        href="/kegiatan/{{ $row->getKey() }}">{!! \Illuminate\Support\Str::words($row->judul, 3, '....') !!}</a> </h6>
+                    <h6 class="mb-0"> <a class="link-dark" href="/kegiatan/{{ $row->getKey() }}">
+                        @php echo \Illuminate\Support\Str::words($row->judul, 3, '....'); @endphp</a> </h6>
                     <ul class="post-meta">
                       <li class="post-date"><i
                           class="uil uil-calendar-alt"></i><span>{{ \Carbon\Carbon::parse($row->updated_at)->format('d M Y') }}</span>

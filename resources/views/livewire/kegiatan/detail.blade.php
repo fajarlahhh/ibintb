@@ -39,7 +39,7 @@
                 <div class="classic-view">
                   <article class="post">
                     <div class="post-content mb-5">
-                      {!! $data->isi !!}
+                      @php echo $data->isi @endphp
                     </div>
                     <!-- /.post-content -->
                     <div class="post-footer d-md-flex flex-md-row justify-content-md-between align-items-center mt-8">

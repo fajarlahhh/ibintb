@@ -1,24 +1,24 @@
 @if (Session::has('danger'))
   <div class="alert alert-danger fade show">
     <span class="close" data-dismiss="alert">×</span>
-    {!! Session::get('danger') !!}
+    @php echo Session::get('danger') @endphp
   </div>
 @endif
 @if (Session::has('warning'))
   <div class="alert alert-warning fade show">
     <span class="close" data-dismiss="alert">×</span>
-    {!! Session::get('warning') !!}
+    @php echo Session::get('warning') @endphp
   </div>
 @endif
 @if (Session::has('info'))
   <div class="alert alert-info fade show">
     <span class="close" data-dismiss="alert">×</span>
-    {!! Session::get('info') !!}
+    @php echo Session::get('info') @endphp
   </div>
 @endif
 @if (Session::has('success'))
   <div class="alert alert-success fade show">
     <span class="close" data-dismiss="alert">×</span>
-    {!! Session::get('success') !!}
+    @php echo Session::get('success') @endphp
   </div>
 @endif

@@ -170,10 +170,10 @@ $currentUrl = '/' . Request::path();
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="/admin-area/profil/keanggotaan"
-                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/keanggotaan') === 0) active @endif">
+                  <a href="/admin-area/profil/cabang"
+                    class="nav-link @if (strpos($currentUrl, '/admin-area/profil/cabang') === 0) active @endif">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Keanggotaan</p>
+                    <p>Cabang</p>
                   </a>
                 </li>
               </ul>

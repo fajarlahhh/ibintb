@@ -46,11 +46,8 @@
                     <li class="nav-item"><a class="dropdown-item" href="/profil/sejarah">Sejarah Singkat</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="/profil/visimisi">Visi Misi</a></li>
                     <li class="nav-item"><a class="dropdown-item" href="/profil/atribut">Atribut IBI</a></li>
-                    <li class="nav-item"><a class="dropdown-item" href="/profil/keanggotaan">Keanggotaan</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="/profil/cabang">Cabang</a></li>
                   </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="/berita">Berita</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="/kegiatan">Kegiatan</a>
@@ -59,7 +56,10 @@
                   <a class="nav-link text-red" href="/pengumuman">Pengumuman</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="/kontak">Kontak Kami</a>
+                  <a class="nav-link " href="/download">Download</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="/kontak">Kontak</a>
                 </li>
               </ul>
               <!-- /.navbar-nav -->
@@ -93,7 +93,7 @@
               <a href="#"><i class="uil uil-twitter"></i></a>
               <a href="#"><i class="uil uil-facebook-f"></i></a>
               <a href="#"><i class="uil uil-dribbble"></i></a>
-              <a href="#"><i class="uil uil-instagram"></i></a>
+              <a href="https://www.instagram.com/ibi_ntb/" target="_blank"><i class="uil uil-instagram"></i></a>
               <a href="#"><i class="uil uil-youtube"></i></a>
             </nav>
             <!-- /.social -->
@@ -118,12 +118,12 @@
                 <ul class="list-unstyled  mb-0">
                   <li><a href="https://ibi.or.id/id/" target="_blank" data-hover="Bidan Delima">IBI
                       Indonesia</a></li>
-                  <li><a href="http://www.internationalmidwives.org/" target="_blank" data-hover="ICM Website">ICM
+                  <li><a href="https://www.internationalmidwives.org/" target="_blank" data-hover="ICM Website">ICM
                       Website</a></li>
-                  <li><a href="http://www.depkes.go.id/" target="_blank"
+                  <li><a href="https://www.kemkes.go.id/" target="_blank"
                       data-hover="Kementerian Kesehatan">Kementerian
                       Kesehatan</a></li>
-                  <li><a href="http://www.bkkbn.go.id/" target="_blank" data-hover="BKKBN">BKKBN</a></li>
+                  <li><a href="https://www.bkkbn.go.id/ target="_blank" data-hover="BKKBN">BKKBN</a></li>
                   <li><a href="http://www.bidan-delima.org/" target="_blank" data-hover="Bidan Delima">Bidan
                       Delima</a></li>
                 </ul>

@@ -30,12 +30,12 @@
         <div class="col-lg-10 mx-auto">
           <div class="blog single mt-n17">
             <div class="card">
-              <figure class="card-img-top"><img src="{{ asset($row->gambar) }}" alt="" /></figure>
+              <figure class="card-img-top"><img src="{{ asset($data->gambar) }}" alt="" /></figure>
               <div class="card-body">
                 <div class="classic-view">
                   <article class="post">
                     <div class="post-content mb-5">
-                      {!! $data->isi !!}
+                      @php echo $data->isi @endphp
                     </div>
                   </article>
                   <!-- /.post -->
