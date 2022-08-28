@@ -29,13 +29,11 @@ class Form extends Component
       $this->validate([
         'judul' => 'required',
         'isi' => 'required',
-        'kategori' => 'required',
       ]);
     } else {
       $this->validate([
         'judul' => 'required',
         'isi' => 'required',
-        'kategori' => 'required',
         'file' => 'required',
       ]);
     }
