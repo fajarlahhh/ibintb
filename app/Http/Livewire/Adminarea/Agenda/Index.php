@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Adminarea\Kegiatan;
+namespace App\Http\Livewire\Adminarea\Agenda;
 
-use App\Models\Posting;
-use Illuminate\Support\Facades\File;
+use App\Models\Agenda;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -25,7 +24,7 @@ class Index extends Component
 
     public function restore()
     {
-        Posting::withTrashed()->findOrFail($this->key)->restore();
+        Agenda::withTrashed()->findOrFail($this->key)->restore();
         $this->key = null;
         $this->resetPage();
         session()->flash('success', 'Data restored successfully');
@@ -33,7 +32,7 @@ class Index extends Component
 
     public function hapus()
     {
-        Posting::findOrFail($this->key)->delete();
+        Agenda::findOrFail($this->key)->delete();
         $this->key = null;
         $this->resetPage();
         session()->flash('success', 'Data deleted successfully');
@@ -41,17 +40,14 @@ class Index extends Component
 
     public function hapusPermanen()
     {
-        $data = Posting::findOrFail($this->key);
-        File::delete(public_path('storage/' . $data->gambar));
-        $data->forceDelete();
+        $data = Agenda::findOrFail($this->key)->forceDelete();
         $this->key = null;
         $this->resetPage();
         session()->flash('success', 'Data deleted successfully');
     }
-
     public function render()
     {
-        $data = Posting::with('kategori')->where('judul', 'like', '%' . $this->cari . '%')->where('jenis', 'kegiatan');
+        $data = Agenda::where('judul', 'like', '%' . $this->cari . '%');
 
         switch ($this->status) {
             case 2:
@@ -61,7 +57,7 @@ class Index extends Component
                 $data = $data->withTrashed();
                 break;
         }
-        return view('livewire.adminarea.kegiatan.index', [
+        return view('livewire.adminarea.agenda.index', [
             'data' => $data->paginate(10),
         ])
             ->extends('layouts.admin');

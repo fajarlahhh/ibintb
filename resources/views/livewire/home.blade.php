@@ -36,7 +36,7 @@
         <ul class="progress-list mt-3 overflow-auto" style="height: 350px">
           @foreach (\App\Models\Agenda::where('waktu', '>=', now())->get() as $row)
             <li>
-              {{ $row->nama }} <br> <small>{{ $row->lokasi }},
+              {{ $row->judul }} <br> <small>{{ $row->lokasi }},
                 {{ \Carbon\Carbon::parse($row->waktu)->format('d F Y H:m:s') }}</small>
               <hr style="margin: 0 0 0 0">
             </li>
