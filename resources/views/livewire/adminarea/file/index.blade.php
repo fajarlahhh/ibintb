@@ -46,7 +46,7 @@
                                     <tr>
                                         <td>{{ $i + 1 }}</td>
                                         <td>{{ $row->nama }}</td>
-                                        <td>{{ asset($data->file) }}</td>
+                                        <td>{{ asset($row->file) }}</td>
                                         <td class="text-right">
                                             <div class="btn-group btn-group-sm" role="group">
                                                 @if ($key === $row->getKey())
