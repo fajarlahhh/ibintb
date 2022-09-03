@@ -24,7 +24,7 @@ class Form extends Component
 
         $this->data->nama = $this->nama;
         if ($file) {
-            $this->data->gambar = str_replace('public/', 'storage/', $file);
+            $this->data->file = str_replace('public/', 'storage/', $file);
         }
         $this->data->save();
         session()->flash('success', 'Data saved successfully');
